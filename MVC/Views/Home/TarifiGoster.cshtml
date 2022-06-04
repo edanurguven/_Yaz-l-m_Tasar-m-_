@@ -1,0 +1,91 @@
+﻿@model Malzeme
+@{
+    ViewData["Title"] = "Tarif";
+}
+
+<body class="bg-light">
+      <div class="container bg-light row" style="padding: 3rem;" >  <!--row eklendi-->
+        <ul class="col-sm-12 col-xl-8 "  style="list-style:none;">  <!--  class="col-8 "   -->
+          <li>
+            <section>     
+                <h4 class="text-danger">@Model.name</h4>
+                <div class="btn-group bg-light pb-3" role="group" aria-label="Basic example"> 
+                    <button type="button" class="btn btn-light border-danger" disabled>
+                        <span class="text-danger">Kaç Kişilik?</span>
+                        <span><p>@Model.KisiSayisi Kişilik</p></span>
+                    </button>
+                    <button type="button" class="btn btn-light border-danger"disabled>
+                        <span class="text-danger">Hazırlama Süresi</span>
+                        <span><p>@Model.Sure saat</p></span>
+                    </button>
+                </div>
+            </section>
+          </li>
+          <li>
+            <section >
+                 <div  style="text-align: left; ">
+                    <img class="col-sm-12   col-xl-12" src="@Model.UmlAdress"  alt="Yemek resmi gelecek">  <!--  style="height: 24rem; width:40rem;"  -->
+                </div>
+            </section>
+          </li>
+            <!--malzeme ve yapılış-->
+          <li>
+            <section>
+            <div class="card my-2">
+                <div class="card-body">
+                   <h5 class="text-danger">MALZEMELER</h5>
+                    <p>
+                        @Model.malzemeler
+                    </p>
+                </div>
+              </div>
+              </section>
+        </li>
+        <li>
+            <section>
+             <div class="card my-2">
+                <div class="card-body ">
+                     <h5 class="text-danger">YAPILIŞI</h5>
+                      <p>
+                          @Model.Anlatim
+                      </p>
+                </div>
+             </div>
+             </section>
+        </li>
+                <!--bitti-->
+        </ul>
+
+
+        <div class="col-sm col-xl-4 " >  <!-- class="col-4"   -->
+                <h5 class="text-danger text-center">ÖNERİLER</h5>
+                <div>
+                    <div style=" padding: 1rem;">
+                        <div class="card border-danger" >
+                            <img src="~/img/ymk5.jpg" class="card-img-top img-boy" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-text">Istakoz</h5>
+                              <button type="button" class="btn btn-outline-warning"><a href="TarifiGoster.html" class="card-link text-reset">Tarife bak</a></button>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+      
+            <!--
+            <div class="col-sm col-xl-4 " >  
+                <h5 class="text-danger text-center">ÖNERİLER</h5>
+                <div>
+                    <div style=" padding: 1rem;">
+                        <div class="card border-danger" >
+                            <img src="~/img/ymk5.jpg" class="card-img-top img-boy" alt="...">
+                            <div class="card-body">
+                              <h5 class="card-text">Istakoz</h5>
+                              <button type="button" class="btn btn-outline-warning"><a href="TarifiGoster.html" class="card-link text-reset">Tarife bak</a></button>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+            </div>   -->
+      </div>
+</body>

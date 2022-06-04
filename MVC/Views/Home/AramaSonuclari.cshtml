@@ -1,0 +1,31 @@
+﻿@model List<Malzeme>
+@{
+    ViewData["Title"] = "AramaSonuclari";
+}
+<body class="bg-light">
+      <div class="container bg-light" style="padding-left: 3rem;padding-right: 3rem;" >
+        <section class="bg-light " style=" padding: 1rem;">
+            <div class="row justify-content-around">
+                @if (Model != null)
+                {
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 " style=" padding: 1rem;">
+                            <div class="card  border-danger">
+                                <img src="@item.UmlAdress" class="card-img-top img-boy" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-text">@item.name</h5>
+                                    <button type="button" class="btn btn-outline-warning"><a asp-controller="Home" asp-action="TarifiGoster" asp-route-id="@item.Id"  class="card-link">Tarife bak</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p>Aranılan kayıt bulunamadı</p>
+                }
+            </div>
+        </section>
+      </div>
+</body>

@@ -1,0 +1,42 @@
+﻿@model List<Malzeme>
+@{
+    ViewData["Title"] = "Home Page";
+}
+<body>
+      <div class="container-sm container-md container-lg container-xl  pb-1" style="padding: 3rem;">
+        <section>
+            <!--arama kısmı için-->
+            <div class="mb-3 ">
+                <div class="container-fluid">
+                    <div class=" collapse d-sm-inline-flex justify-content-between">
+                        <form action="/Home/AramaSonuclari" method="get" class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" name="malzeme" id="malzeme" type="search" placeholder="Malzeme ara" aria-label="search">
+                            <button class="btn btn-warning my-2 my-sm-0" type="submit">Ara</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--arama kısm için bitti-->
+        </section>
+        <!--card yapısı-->
+        <section style=" padding: 1rem;">  
+            <div class="row justify-content-around ">
+                
+                    @foreach(var item in Model)
+                    {
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4" style=" padding: 1rem;">
+                            <div class="card border-danger">
+                                <img src="@item.UmlAdress" class="card-img-top img-boy" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-text">@item.name</h5>
+                                    
+                                    <button type="button" class="btn btn-outline-warning"><a asp-controller="Home" asp-action="TarifiGoster" asp-route-id="@item.Id"  class="card-link">Tarife bak</a></button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+            </div>
+        </section>  
+        <!--bitti-->
+      </div>
+</body>
