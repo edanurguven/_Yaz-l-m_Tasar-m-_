@@ -73,6 +73,8 @@ namespace MVC.Controllers
         public IActionResult TarifiGoster(int id)
         {
             //Tıklanılan yemeğin bilgileri dönmeli
+
+            ViewBag.Oneriler = _malzeme.GetAll().Take(3).ToList(); //oneriler icin
             var malzeme = _malzeme.GetById(id);
             return View(malzeme);
         }

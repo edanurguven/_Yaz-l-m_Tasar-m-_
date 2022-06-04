@@ -57,35 +57,26 @@
         </ul>
 
 
+        <!--   oneriler kısmı-->
         <div class="col-sm col-xl-4 " >  <!-- class="col-4"   -->
                 <h5 class="text-danger text-center">ÖNERİLER</h5>
                 <div>
                     <div style=" padding: 1rem;">
-                        <div class="card border-danger" >
-                            <img src="~/img/ymk5.jpg" class="card-img-top img-boy" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-text">Istakoz</h5>
-                              <button type="button" class="btn btn-outline-warning"><a href="TarifiGoster.html" class="card-link text-reset">Tarife bak</a></button>
+                        @foreach(var item in ViewBag.Oneriler)
+                    {
+                        <div class="" style=" padding: 1rem;"> <!--  col-sm-12 col-md-6 col-lg-6 col-xl-4  -->
+                            <div class="card border-danger">
+                                <img src="@item.UmlAdress" class="card-img-top img-boy" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-text">@item.name</h5>
+                                    
+                                    <button type="button" class="btn btn-outline-warning"><a asp-controller="Home" asp-action="TarifiGoster" asp-route-id="@item.Id"  class="card-link">Tarife bak</a></button>
+                                </div>
                             </div>
-                          </div>
+                        </div>
+                    }
                     </div>
                 </div>
             </div>
-      
-            <!--
-            <div class="col-sm col-xl-4 " >  
-                <h5 class="text-danger text-center">ÖNERİLER</h5>
-                <div>
-                    <div style=" padding: 1rem;">
-                        <div class="card border-danger" >
-                            <img src="~/img/ymk5.jpg" class="card-img-top img-boy" alt="...">
-                            <div class="card-body">
-                              <h5 class="card-text">Istakoz</h5>
-                              <button type="button" class="btn btn-outline-warning"><a href="TarifiGoster.html" class="card-link text-reset">Tarife bak</a></button>
-                            </div>
-                          </div>
-                    </div>
-                </div>
-            </div>   -->
       </div>
 </body>
