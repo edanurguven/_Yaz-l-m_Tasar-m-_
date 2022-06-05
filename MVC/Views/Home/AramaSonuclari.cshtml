@@ -5,10 +5,11 @@
 <body class="bg-light">
       <div class="container bg-light" style="padding-left: 3rem;padding-right: 3rem;" >
         <section class="bg-light " style=" padding: 1rem;">
-            <div class="row justify-content-around">
+            
               @{
-                @if (Model != null)
+                @if ((Model != null) &&  (Model.Count >0))
                 {
+                    <div class="row justify-content-around">
                     @foreach (var item in Model)
                     {
                         <div class="col-sm-12 col-md-6 col-lg-6 col-xl-4 " style=" padding: 1rem;">
@@ -21,17 +22,24 @@
                             </div>
                         </div>
                     }
+                    </div>
                 }
+            
                 else
                 {
+                    <div>
                     <p>Aranılan kayıt bulunamadı.Sorununuzun iki sebebi olabilir:</p>
+                    <br>
+                    <p>
                     <ul>
                         <li>Aradığınız malzemelere göre tarif olmayabilir.</li>
                         <li>Malzemeleri yanlış girmiş olabilirsiniz.Lütfen tekrar deneyiniz.</li>
                     </ul>
+                    </p>
+                    </div>
                 }
               }
-            </div>
+            
         </section>
       </div>
 </body>

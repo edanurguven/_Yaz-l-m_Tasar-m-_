@@ -31,44 +31,17 @@ namespace MVC.Controllers
             //Arama sonuçları gösterilecek
             if (malzeme != null)
             {
-                var kelime = malzeme.ToUpper();
-                var list = new List<Malzeme>();
-                var dbList = _malzeme.GetChoose();
-                list = GetMalzeme(dbList, kelime);
-
-                if (list != null)
-                {
-                    return View(list);
-                }
-                else
-                {
-                    return View();
-                }
+                char[] delimiterChars = { ',', '.', ':' };
+                string[] array = malzeme.Split(delimiterChars,StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+                var dbList = _malzeme.GetChoose(array);
+                return View(dbList);
             }
             else
             {
                 //liste boş dönebilir
                 return View();
             }
-        }
-        //[NonAction]
-        public List<Malzeme> GetMalzeme(List<Malzeme> DbList, string malzeme)
-        {
-            var list = new List<Malzeme>();
-            var kelime = malzeme;
-            foreach (var item in DbList)
-            {
-                var stringMetin = item.malzemeler.ToString();
-                stringMetin = stringMetin.ToUpper();
-                int sonuc = stringMetin.IndexOf(kelime);
-                if (!(sonuc == -1))
-                {
-                    list.Add(item);
-                }
-
-            }
-            return list;
-        }
+        }   
 
         public IActionResult TarifiGoster(int id)
         {

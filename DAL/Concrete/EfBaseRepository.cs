@@ -66,11 +66,15 @@ namespace DAL.Concrete
             }
         }
 
-        public List<T> GetChoose()
+        public List<Malzeme> GetChoose(string[] Array)
         {
             using (var context = new ProjeDbContext())
             {
-                return context.Set<T>().ToList();
+                IQueryable<Malzeme> query = context.Malzemes;
+                foreach (string keyword in Array)
+                    query = query.Where(p => p.malzemeler.Contains(keyword));
+
+                return query.ToList();
 
             }
         }

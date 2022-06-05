@@ -16,7 +16,7 @@ namespace DAL.Abstract
         List<T> GetAll(Expression<Func<T, bool>> filter = null);
         T GetById(int id);
 
-        List<T> GetChoose(); //malzemeyi arayacak
+        List<Malzeme> GetChoose(string[] Array); //malzemeyi arayacak
 
     }
 }
